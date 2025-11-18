@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Mynodejsapp
+  labels:
+    app: Mynodejsapp
+spec:
+  replicas: 2      # e.g. 2
+  selector:
+    matchLabels:
+      app: Mynodejsapp
+  template:
+    metadata:
+      labels:
+        app: Mynodejsapp
+    spec:
+      containers:
+        - name: Mynodejsapp
+          image: saptarshi500/nodejsapp:latest   # e.g. myrepo/myapp:latest
+          ports:
+            - containerPort: 3002   # e.g. 8080
